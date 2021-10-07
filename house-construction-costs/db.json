@@ -1,0 +1,238 @@
+{
+  "costs": [
+    {
+      "id": "dahMoiU",
+      "year": "2006",
+      "voivodeship": "Łódzkie",
+      "workStage": "SSZ - stan surowy zamknięty",
+      "workOrderLevel": "50% - prac zostało zleconych",
+      "houseArea": "160",
+      "constructionCost": "475000"
+    },
+    {
+      "id": "Sj-0Wjz",
+      "year": "2011",
+      "voivodeship": "Małopolskie",
+      "workStage": "SSZ - stan surowy zamknięty",
+      "workOrderLevel": "50% - prac zostało zleconych",
+      "houseArea": "250",
+      "constructionCost": "470000"
+    },
+    {
+      "id": "pV_ROjS",
+      "year": "2011",
+      "voivodeship": "Małopolskie",
+      "workStage": "SSZ - stan surowy zamknięty",
+      "workOrderLevel": "50% - prac zostało zleconych",
+      "houseArea": "152",
+      "constructionCost": "375000"
+    },
+    {
+      "id": "IoXR3ks",
+      "year": "",
+      "voivodeship": "Małopolskie",
+      "workStage": "SSZ - stan surowy zamknięty",
+      "workOrderLevel": "50% - prac zostało zleconych",
+      "houseArea": "152",
+      "constructionCost": "450000"
+    },
+    {
+      "id": "HcmvrmD",
+      "year": "2006",
+      "voivodeship": "Łódzkie",
+      "workStage": "SSZ - stan surowy zamknięty",
+      "workOrderLevel": "50% - prac zostało zleconych",
+      "houseArea": 0,
+      "constructionCost": 0
+    },
+    {
+      "id": "q-IqGwx",
+      "year": "2007",
+      "voivodeship": "Łódzkie",
+      "workStage": "SSO - stan surowy otwart",
+      "workOrderLevel": "75% - prac zostało zleconych",
+      "houseArea": "87",
+      "constructionCost": "123000"
+    },
+    {
+      "id": "ksDDISK",
+      "year": "2005",
+      "voivodeship": "Łódzkie",
+      "workStage": "SSZ - stan surowy zamknięty",
+      "workOrderLevel": "75% - prac zostało zleconych",
+      "houseArea": "200",
+      "constructionCost": "45000"
+    },
+    {
+      "id": "Lbkacyw",
+      "year": "2006",
+      "voivodeship": "Łódzkie",
+      "workStage": "DEW - stan deweloperski",
+      "workOrderLevel": "100% - prac wykonałem samodzielnie",
+      "houseArea": "120",
+      "constructionCost": "475000"
+    },
+    {
+      "id": "BcDteWO",
+      "year": "2003",
+      "voivodeship": "Łódzkie",
+      "workStage": "SSO - stan surowy otwart",
+      "workOrderLevel": "75% - prac zostało zleconych",
+      "houseArea": "125",
+      "constructionCost": "450000"
+    },
+    {
+      "id": "gKzey6P",
+      "year": "2004",
+      "voivodeship": "Śląskie",
+      "workStage": "SSZ - stan surowy zamknięty",
+      "workOrderLevel": "50% - prac zostało zleconych",
+      "houseArea": "120",
+      "constructionCost": "450000"
+    },
+    {
+      "id": "KNiJ7p2",
+      "year": "2005",
+      "voivodeship": "Łódzkie",
+      "workStage": "SSZ - stan surowy zamknięty",
+      "workOrderLevel": "50% - prac zostało zleconych",
+      "houseArea": "145",
+      "constructionCost": "385000"
+    },
+    {
+      "id": "gdEWVQO",
+      "year": "2000",
+      "voivodeship": "Dolnośląskie",
+      "workStage": "SSO - stan surowy otwart",
+      "workOrderLevel": "50% - prac zostało zleconych",
+      "houseArea": "125",
+      "constructionCost": "385000"
+    },
+    {
+      "id": "Sw7jLx-",
+      "year": "2006",
+      "voivodeship": "Małopolskie",
+      "workStage": "SSZ - stan surowy zamknięty",
+      "workOrderLevel": "50% - prac zostało zleconych",
+      "houseArea": "124",
+      "constructionCost": "125400"
+    },
+    {
+      "id": "vrVuP1E",
+      "year": "2000",
+      "voivodeship": "Dolnośląskie",
+      "workStage": "SSO - stan surowy otwart",
+      "workOrderLevel": "100% - wszystkie prace zostały zlecone",
+      "houseArea": "100",
+      "constructionCost": "250000"
+    },
+    {
+      "id": "rBtVpgt",
+      "year": "2000",
+      "voivodeship": "Dolnośląskie",
+      "workStage": "SSO - stan surowy otwart",
+      "workOrderLevel": "100% - wszystkie prace zostały zlecone",
+      "houseArea": "100",
+      "constructionCost": "250000"
+    },
+    {
+      "id": "4VfeJ9h",
+      "year": "2000",
+      "voivodeship": "Dolnośląskie",
+      "workStage": "SSO - stan surowy otwart",
+      "workOrderLevel": "100% - wszystkie prace zostały zlecone",
+      "houseArea": "100",
+      "constructionCost": "250000"
+    },
+    {
+      "id": "HToi_NG",
+      "year": "2000",
+      "voivodeship": "Dolnośląskie",
+      "workStage": "SSO - stan surowy otwart",
+      "workOrderLevel": "100% - wszystkie prace zostały zlecone",
+      "houseArea": "170",
+      "constructionCost": "650000"
+    },
+    {
+      "id": "DeM5bz2",
+      "year": "2005",
+      "voivodeship": "Lubuskie",
+      "workStage": "SSO - stan surowy otwart",
+      "workOrderLevel": "100% - wszystkie prace zostały zlecone",
+      "houseArea": "100",
+      "constructionCost": "325000"
+    },
+    {
+      "id": "yFkmwKR",
+      "year": "2001",
+      "voivodeship": "Kujawsko-pomorskie",
+      "workStage": "SSO - stan surowy otwart",
+      "workOrderLevel": "75% - prac zostało zleconych",
+      "houseArea": "99",
+      "constructionCost": "200000"
+    },
+    {
+      "id": "x6q4mJI",
+      "year": "",
+      "voivodeship": "Dolnośląskie",
+      "workStage": "SSO - stan surowy otwart",
+      "workOrderLevel": "100% - wszystkie prace zostały zlecone",
+      "houseArea": "100",
+      "constructionCost": "310000"
+    },
+    {
+      "id": "FPqVvKA",
+      "year": "",
+      "voivodeship": "Dolnośląskie",
+      "workStage": "SSO - stan surowy otwart",
+      "workOrderLevel": "100% - wszystkie prace zostały zlecone",
+      "houseArea": "100",
+      "constructionCost": "310000"
+    },
+    {
+      "id": "BU89UAO",
+      "year": "2000",
+      "voivodeship": "Dolnośląskie",
+      "workStage": "SSO - stan surowy otwart",
+      "workOrderLevel": "100% - wszystkie prace zostały zlecone",
+      "houseArea": "100",
+      "constructionCost": "310000"
+    },
+    {
+      "id": "EXhJEC6",
+      "year": "2000",
+      "voivodeship": "Dolnośląskie",
+      "workStage": "SSO - stan surowy otwart",
+      "workOrderLevel": "100% - wszystkie prace zostały zlecone",
+      "houseArea": "100",
+      "constructionCost": "310000"
+    },
+    {
+      "id": "NhaljL1",
+      "year": "2001",
+      "voivodeship": "Lubelskie",
+      "workStage": "SSZ - stan surowy zamknięty",
+      "workOrderLevel": "50% - prac zostało zleconych",
+      "houseArea": "100",
+      "constructionCost": "250000"
+    },
+    {
+      "id": "arfvwQs",
+      "year": "2005",
+      "voivodeship": "Dolnośląskie",
+      "workStage": "SSO - stan surowy otwart",
+      "workOrderLevel": "75% - prac zostało zleconych",
+      "houseArea": "100",
+      "constructionCost": "287000"
+    },
+    {
+      "id": "CfeeAl5",
+      "year": "2000",
+      "voivodeship": "Dolnośląskie",
+      "workStage": "SSO - stan surowy otwart",
+      "workOrderLevel": "50% - prac zostało zleconych",
+      "houseArea": "145",
+      "constructionCost": "375000"
+    }
+  ]
+}
