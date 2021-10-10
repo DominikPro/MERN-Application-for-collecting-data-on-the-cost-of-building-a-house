@@ -4,6 +4,7 @@ import Menu from "./Components/Menu/Menu";
 import Stats from "./Components/StatisticForm/StatisticForm";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+
 const App = () => {
   return (
     <div>

@@ -1,6 +1,4 @@
 import { React, useState, createRef, useEffect } from "react";
-import { v4 as uuid } from "uuid";
-import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addCost, getCosts } from "../../redux/actions/costs";
 
@@ -11,22 +9,17 @@ import checkRadio from "../../actions/checkRadio";
 import VoivodeshipInput from "../Shared/VoivodeshipInput";
 import YearInput from "../Shared/YearInput";
 import { stateOfConstructionOptions, workOrderLevel } from "./dataForm";
+//----------------------------------------------------------------------
+import Button  from '@mui/material/Button';
 
 const CostForm = () => {
   const dispatch = useDispatch();
 
   const [sendedToDB, setSendedToDB] = useState(false);
-  // const [emptyFormData, setEmptyFormData] = useState({
-  //   info: {
-  //     id: "",
-  //     year: "",
-  //     voivodeship: "",
-  //     workStage: "",
-  //     workOrderLevel: "",
-  //     houseArea: 0,
-  //     constructionCost: 0,
-  //   },
-  // });
+  const workStageInpiut = createRef();
+  const workLevelInput = createRef();
+  const houseAreaInput = createRef();
+  const constructionCostInput = createRef();
 
   const [formData, setFormData] = useState({
     id: "",
@@ -38,10 +31,7 @@ const CostForm = () => {
     constructionCost: 0,
   });
 
-  const workStageInpiut = createRef();
-  const workLevelInput = createRef();
-  const houseAreaInput = createRef();
-  const constructionCostInput = createRef();
+
 
   if (!sendedToDB) {
     return (
@@ -124,7 +114,7 @@ const CostForm = () => {
             ref={constructionCostInput}
           />
         </div>
-        <button
+        <Button variant="contained"
           onClick={() => {
             if (checkForm(formData)) {
               dispatch(addCost(formData));
@@ -134,7 +124,7 @@ const CostForm = () => {
           }}
         >
           Wyślij
-        </button>
+        </Button>
       </>
     );
   } else {
