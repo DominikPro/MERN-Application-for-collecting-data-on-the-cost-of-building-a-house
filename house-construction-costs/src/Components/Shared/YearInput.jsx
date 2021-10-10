@@ -1,6 +1,7 @@
-import React, {createRef} from 'react'
+import React, {createRef, useState} from 'react'
 import {year} from "../CostForm/dataForm"
 import upDateForm from "../../actions/upDateForm"
+
 
 
 const YearInput=(props)=> {
@@ -14,7 +15,7 @@ const YearInput=(props)=> {
       >
         {year.map((item) => {
           return (
-            <option key={item} id={item.year}   name={"year"} >
+            <option key={item} id={item.year} name={"year"} >
               {item}
             </option>
           );
