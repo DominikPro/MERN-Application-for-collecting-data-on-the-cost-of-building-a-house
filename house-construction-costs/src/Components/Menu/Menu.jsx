@@ -1,31 +1,35 @@
-import React from 'react'
-import {Link} from "react-router-dom";
-import Button  from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
-import Box from '@mui/material/Box';
+import React from "react";
+import { Link } from "react-router-dom";
 
-const Menu=()=> {
-    return (
-<Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'left',
-        '& > *': {
-          m: 1,
-        },
-      }}
-    >
+import { Button, ButtonGroup, Box, AppBar, Typography, MenuItem } from "@material-ui/core/";
+
+const Menu = () => {
+  return (
+
+    <AppBar position="static">
+
+<MenuItem>
+      <Typography variant="h4">Statystyki budowlane</Typography>
+      </MenuItem>
       <ButtonGroup variant="outlined" aria-label="outlined button group">
 
-      <Link to="/from" underline="none"> <Button variant="contained">Fromularz</Button> </Link>
-      <Link to="/stats" underline="none"> <Button variant="contained">Statystyki</Button> </Link>
+
+        <MenuItem>
+          <Link to="/from" underline="none">
+
+            <Button variant="contained">Fromularz</Button>
+          </Link>
+        </MenuItem>
+
+        <MenuItem>
+          <Link to="/stats" underline="none">
+
+            <Button variant="contained">Statystyki</Button>
+          </Link>
+        </MenuItem>
 
       </ButtonGroup>
-
-       
-    </Box>
-            
-    )
-}
-export default Menu
+    </AppBar >
+  );
+};
+export default Menu;
