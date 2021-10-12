@@ -10,7 +10,8 @@ import VoivodeshipInput from "../Shared/VoivodeshipInput";
 import YearInput from "../Shared/YearInput";
 import { stateOfConstructionOptions, workOrderLevel } from "./dataForm";
 //----------------------------------------------------------------------
-import {Button} from '@material-ui/core/'
+import { Container, Button, Box, Typography, } from '@material-ui/core/'
+
 
 const CostForm = () => {
   const dispatch = useDispatch();
@@ -36,95 +37,97 @@ const CostForm = () => {
   if (!sendedToDB) {
     return (
       <>
-        <div>
-          <h3>Rok rozpoczecia budowy {formData.year}</h3>
-          <YearInput setStateInParentComponent={setFormData} />
-        </div>
+        <Container maxWidth="md">
+          <Box >
+            <Typography variant="h5">Rok rozpoczecia budowy {formData.year}</Typography>
+            <YearInput setStateInParentComponent={setFormData} />
+          </Box>
 
-        <div>
-          <h3>
-            Województwo gdzie prowadzona jest inwestycja {formData.voivodeship}
-          </h3>
-          <VoivodeshipInput setStateInParentComponent={setFormData} />
-        </div>
+          <div>
+            <Typography variant="h5">
+              Województwo gdzie prowadzona jest inwestycja {formData.voivodeship}
+            </Typography>
+            <VoivodeshipInput setStateInParentComponent={setFormData} />
+          </div>
 
-        <div>
-          <h3>Stan robót</h3>
+          <div>
+            <Typography variant="h5">Stan robót</Typography>
 
-          {stateOfConstructionOptions.map((item) => {
-            return (
-              <div key={item}>
-                <label
-                  onClick={(e) => checkRadio(e, workStageInpiut, setFormData)}
-                  for="workStage"
-                >
-                  {item}
-                  <input
-                    key={item.workStage}
-                    name={"workStage"}
-                    type="radio"
-                    value={item}
-                    ref={workStageInpiut}
-                  ></input>
-                </label>
-              </div>
-            );
-          })}
-        </div>
-        <div>
-          <h3>Poziom zlecanych prac</h3>
-          {workOrderLevel.map((item) => {
-            return (
-              <div key={item} >
-                <label  key={item} for="workLevel">
-                  {item}
-                  <input
-                    onClick={(e) => checkRadio(e, workLevelInput, setFormData)}
-                    name={"workOrderLevel"}
-                    type="radio"
-                    value={item}
-                    ref={workLevelInput}
-                    key={item.workOrderLevel}
-                  />
-                </label>
-              </div>
-            );
-          })}
-        </div>
-        <div>
-          <h3>Całkowita powierzchnia domu - wraz z garażem i piwnicą</h3>
-          <input
-            onChange={(e) => upDateForm(e, houseAreaInput, setFormData)}
-            type="number"
-            step="1"
-            placeholder="powierzchnia budynku"
-            name={"houseArea"}
-            ref={houseAreaInput}
-          />
-        </div>
+            {stateOfConstructionOptions.map((item) => {
+              return (
+                <div key={item}>
+                  <label
+                    onClick={(e) => checkRadio(e, workStageInpiut, setFormData)}
+                    for="workStage"
+                  >
+                    {item}
+                    <input
+                      key={item.workStage}
+                      name={"workStage"}
+                      type="radio"
+                      value={item}
+                      ref={workStageInpiut}
+                    ></input>
+                  </label>
+                </div>
+              );
+            })}
+          </div>
+          <div>
+            <Typography variant="h5">Poziom zlecanych prac</Typography>
+            {workOrderLevel.map((item) => {
+              return (
+                <div key={item} >
+                  <label key={item} for="workLevel">
+                    {item}
+                    <input
+                      onClick={(e) => checkRadio(e, workLevelInput, setFormData)}
+                      name={"workOrderLevel"}
+                      type="radio"
+                      value={item}
+                      ref={workLevelInput}
+                      key={item.workOrderLevel}
+                    />
+                  </label>
+                </div>
+              );
+            })}
+          </div>
+          <div>
+            <Typography>Całkowita powierzchnia domu - wraz z garażem i piwnicą</Typography>
+            <input
+              onChange={(e) => upDateForm(e, houseAreaInput, setFormData)}
+              type="number"
+              step="1"
+              placeholder="powierzchnia budynku"
+              name={"houseArea"}
+              ref={houseAreaInput}
+            />
+          </div>
 
-        <div>
-          <h3>Całkowity koszt budowy brutto</h3>
-          <input
-            onChange={(e) => upDateForm(e, constructionCostInput, setFormData)}
-            type="number"
-            step="1000"
-            placeholder="kwota brutto"
-            name={"constructionCost"}
-            ref={constructionCostInput}
-          />
-        </div>
-        <Button variant="contained"
-          onClick={() => {
-            if (checkForm(formData)) {
-              dispatch(addCost(formData));
-              setSendedToDB(true);
-            }
-            console.log(formData);
-          }}
-        >
-          Wyślij
-        </Button>
+          <div>
+            <Typography>Całkowity koszt budowy brutto</Typography>
+            <input
+              onChange={(e) => upDateForm(e, constructionCostInput, setFormData)}
+              type="number"
+              step="1000"
+              placeholder="kwota brutto"
+              name={"constructionCost"}
+              ref={constructionCostInput}
+            />
+          </div>
+          <Button variant="contained"
+            onClick={() => {
+              if (checkForm(formData)) {
+                dispatch(addCost(formData));
+                setSendedToDB(true);
+              }
+              console.log(formData);
+            }}
+          >
+            Wyślij
+          </Button>
+        </Container>
       </>
     );
   } else {

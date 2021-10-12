@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import findData from "../../actions/findData"
 import { voivodships } from "../CostForm/dataForm";
-import Button  from '@mui/material/Button';
+import Button from '@mui/material/Button';
+import { Container, Typography, Box } from '@material-ui/core/'
 // import { useDispatch } from "react-redux";
 // import { useSelector } from "react-redux";
 // import {getCosts} from "../../redux/actions/costs"
@@ -21,37 +22,42 @@ const StatsGenerator = (props) => {
         setNoStat(false)
     }, [dataForStats, dataSelectedByCustomer])
 
-    const showStata =()=>{
-        let filtredData = dataForStats.filter(item => {if(item.year===parseInt(dataSelectedByCustomer.year) && item.voivodeship === dataSelectedByCustomer.voivodeship) {return item}});
+    const showStata = () => {
+        let filtredData = dataForStats.filter(item => { if (item.year === parseInt(dataSelectedByCustomer.year) && item.voivodeship === dataSelectedByCustomer.voivodeship) { return item } });
         let sumOfCosts = filtredData.reduce((accum, obj) => accum + Number(obj.constructionCost), 0);
-        let sumOfArea = filtredData.reduce((accum, obj)=>accum + Number(obj.houseArea),0);
+        let sumOfArea = filtredData.reduce((accum, obj) => accum + Number(obj.houseArea), 0);
 
-        if(sumOfCosts === 0 || sumOfArea ===0){
-            return  setNoStat(true)
-        }else{
-            setAverageCost(Math.round(sumOfCosts/sumOfArea))
-            setAverageSize(Math.round(sumOfArea/filtredData.length))
+        if (sumOfCosts === 0 || sumOfArea === 0) {
+            return setNoStat(true)
+        } else {
+            setAverageCost(Math.round(sumOfCosts / sumOfArea))
+            setAverageSize(Math.round(sumOfArea / filtredData.length))
         }
-        
+
         setShowStat(true)
     }
- 
+
     if (dataSelectedByCustomer.year != "" && dataSelectedByCustomer.voivodeship != "") {
         return (
-            <> 
-            <div>
-                <h5>{`Wybrano województwo ${dataSelectedByCustomer.voivodeship} statyski za rok ${dataSelectedByCustomer.year}`}</h5>
-                <Button variant="contained"
-                    onClick={() => showStata()}
-                >
-                    Pokarz statystki
-                </Button>
-            </div>
-            {showStat ? <h2>{`Średni koszt budowy 1m2 domu w ${dataSelectedByCustomer.year} roku wyniusł ${averageCost}zł średnia wielkość budowanego domu to ${averageSize} m2`}</h2> : null}
-            {noStat ? <h2>Brak danych</h2> : null}
+            <>
+                <Box>
+                    <Typography variant="h5">{`Wybrano województwo ${dataSelectedByCustomer.voivodeship} statyski za rok ${dataSelectedByCustomer.year}`}</Typography>
+                    <Button variant="contained"
+                        onClick={() => showStata()}
+                    >
+                        Pokarz statystki
+                    </Button>
+                </Box>
+                <Box>
+                    {showStat ? <Typography variant="h4">{`Średni koszt budowy 1m2 domu w ${dataSelectedByCustomer.year} roku wyniusł ${averageCost}zł średnia wielkość budowanego domu to ${averageSize} m2`}</Typography> : null}
+                </Box>
+                <Box>
+
+                    {noStat ? <Typography variant="h4">Brak danych</Typography> : null}
+                </Box>
             </>
         );
-    } else return (<h5>Wybierz rok i województwo</h5>)
+    } else return (<Typography variant="h5">Wybierz rok i województwo</Typography>)
 
 };
 export default StatsGenerator;
