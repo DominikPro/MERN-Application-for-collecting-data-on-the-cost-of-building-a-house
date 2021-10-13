@@ -1,6 +1,7 @@
 import { React, useState, createRef, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addCost, getCosts } from "../../redux/actions/costs";
+import { useSessionStorage } from "../../actions/useStorage";
 
 import GoToStats from "../GoToStats/GoToStats";
 import checkForm from "../../actions/checkForm";
@@ -14,6 +15,7 @@ import { Container, Button, Box, Typography, } from '@material-ui/core/'
 
 
 const CostForm = () => {
+  const [voted, setVoted, removeVoted] = useSessionStorage("voted", false)
   const dispatch = useDispatch();
 
   const [sendedToDB, setSendedToDB] = useState(false);
@@ -21,7 +23,6 @@ const CostForm = () => {
   const workLevelInput = createRef();
   const houseAreaInput = createRef();
   const constructionCostInput = createRef();
-
   const [formData, setFormData] = useState({
     id: "",
     year: "",
@@ -34,7 +35,7 @@ const CostForm = () => {
 
 
 
-  if (!sendedToDB) {
+  if (!voted) {
     return (
       <>
         <Container maxWidth="md">
@@ -116,17 +117,20 @@ const CostForm = () => {
               ref={constructionCostInput}
             />
           </div>
+          <Box sx={{  m: 1 }}>
           <Button variant="contained"
             onClick={() => {
               if (checkForm(formData)) {
                 dispatch(addCost(formData));
                 setSendedToDB(true);
+                setVoted(true)
               }
               console.log(formData);
             }}
           >
             Wyślij
           </Button>
+          </Box>
         </Container>
       </>
     );

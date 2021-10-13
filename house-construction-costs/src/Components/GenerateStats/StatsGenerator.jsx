@@ -40,24 +40,29 @@ const StatsGenerator = (props) => {
     if (dataSelectedByCustomer.year != "" && dataSelectedByCustomer.voivodeship != "") {
         return (
             <>
-                <Box>
+                <Box sx={{  m: 1 }}>
                     <Typography variant="h5">{`Wybrano województwo ${dataSelectedByCustomer.voivodeship} statyski za rok ${dataSelectedByCustomer.year}`}</Typography>
-                    <Button variant="contained"
-                        onClick={() => showStata()}
-                    >
-                        Pokarz statystki
-                    </Button>
                 </Box>
-                <Box>
+
+                <Box sx={{  m: 1 }}>
+                <Button variant="contained"
+                    onClick={() => showStata()}
+                >
+                    Pokarz statystki
+                </Button>
+                </Box>
+
+                <Box sx={{ m: 2 }}>
                     {showStat ? <Typography variant="h4">{`Średni koszt budowy 1m2 domu w ${dataSelectedByCustomer.year} roku wyniusł ${averageCost}zł średnia wielkość budowanego domu to ${averageSize} m2`}</Typography> : null}
                 </Box>
-                <Box>
+                
+                <Box sx={{ p: 2 }}>
 
                     {noStat ? <Typography variant="h4">Brak danych</Typography> : null}
                 </Box>
             </>
         );
-    } else return (<Typography variant="h5">Wybierz rok i województwo</Typography>)
+    } else return (<Box sx={{  m: 1 }}><Typography variant="h5">Wybierz rok i województwo</Typography></Box>)
 
 };
 export default StatsGenerator;
