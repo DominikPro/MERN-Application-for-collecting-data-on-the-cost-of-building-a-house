@@ -1,8 +1,10 @@
+
 const upDateForm = (e, ref, setFormData) => {
     setFormData((prevState) => ({
+    
       ...prevState,
         ...prevState.info,
-        [e.target.name]: ref.current.value,
+        [e.target.name]:ref.current.value,
     
     }));
   };

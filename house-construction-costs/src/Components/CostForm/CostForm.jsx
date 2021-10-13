@@ -11,7 +11,7 @@ import VoivodeshipInput from "../Shared/VoivodeshipInput";
 import YearInput from "../Shared/YearInput";
 import { stateOfConstructionOptions, workOrderLevel } from "./dataForm";
 //----------------------------------------------------------------------
-import { Container, Button, Box, Typography, } from '@material-ui/core/'
+import { Container, Button, Box, Typography, Input } from '@material-ui/core/'
 
 
 const CostForm = () => {
@@ -39,23 +39,25 @@ const CostForm = () => {
     return (
       <>
         <Container maxWidth="md">
-          <Box >
+          <Box sx={{ m: 1 }} >
             <Typography variant="h5">Rok rozpoczecia budowy {formData.year}</Typography>
             <YearInput setStateInParentComponent={setFormData} />
           </Box>
 
-          <div>
+          <Box sx={{ m: 1 }}>
             <Typography variant="h5">
               Województwo gdzie prowadzona jest inwestycja {formData.voivodeship}
             </Typography>
             <VoivodeshipInput setStateInParentComponent={setFormData} />
-          </div>
+          </Box>
 
-          <div>
+          <Box sx={{ m: 1 }}>
             <Typography variant="h5">Stan robót</Typography>
 
             {stateOfConstructionOptions.map((item) => {
               return (
+
+
                 <div key={item}>
                   <label
                     onClick={(e) => checkRadio(e, workStageInpiut, setFormData)}
@@ -71,10 +73,11 @@ const CostForm = () => {
                     ></input>
                   </label>
                 </div>
+
               );
             })}
-          </div>
-          <div>
+          </Box>
+          <Box sx={{ m: 1 }}>
             <Typography variant="h5">Poziom zlecanych prac</Typography>
             {workOrderLevel.map((item) => {
               return (
@@ -93,43 +96,55 @@ const CostForm = () => {
                 </div>
               );
             })}
-          </div>
-          <div>
-            <Typography>Całkowita powierzchnia domu - wraz z garażem i piwnicą</Typography>
-            <input
+          </Box>
+         
+          <Box sx={{ m: 1 }}>
+            <Typography>Całkowita powierzchnia domu  - wraz z garażem i piwnicą</Typography>
+            <Input
               onChange={(e) => upDateForm(e, houseAreaInput, setFormData)}
+              // label="Powierzchnia domu"
               type="number"
               step="1"
-              placeholder="powierzchnia budynku"
+              // placeholder="powierzchnia budynku"
               name={"houseArea"}
-              ref={houseAreaInput}
+              inputRef={houseAreaInput}
+              varian="outlined"
             />
-          </div>
+            </Box>
+         
 
-          <div>
-            <Typography>Całkowity koszt budowy brutto</Typography>
-            <input
+          <Box sx={{ m: 1 }}>
+            <Typography>Koszt budowy brutto</Typography>
+            <Input onChange={(e) => upDateForm(e, constructionCostInput, setFormData)}
+              label="Koszt budowy domu brutto"
+              type="number"
+              step="1000"
+              name={"constructionCost"}
+              inputRef={constructionCostInput}
+              varian="outlined"/>
+            </Box>
+            {/* <input
+              placeholder="kwota brutto"
               onChange={(e) => upDateForm(e, constructionCostInput, setFormData)}
               type="number"
               step="1000"
-              placeholder="kwota brutto"
               name={"constructionCost"}
               ref={constructionCostInput}
-            />
-          </div>
-          <Box sx={{  m: 1 }}>
-          <Button variant="contained"
-            onClick={() => {
-              if (checkForm(formData)) {
-                dispatch(addCost(formData));
-                setSendedToDB(true);
-                setVoted(true)
-              }
-              console.log(formData);
-            }}
-          >
-            Wyślij
-          </Button>
+            /> */}
+         
+          <Box sx={{ m: 1 }}>
+            <Button variant="contained"
+              onClick={() => {
+                if (checkForm(formData)) {
+                  dispatch(addCost(formData));
+                  setSendedToDB(true);
+                  setVoted(true)
+                }
+                console.log(formData);
+              }}
+            >
+              Wyślij
+            </Button>
           </Box>
         </Container>
       </>
