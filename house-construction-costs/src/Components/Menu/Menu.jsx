@@ -1,37 +1,38 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { Button, ButtonGroup, Box, AppBar, Typography,Toolbar, MenuItem, CssBaseline } from "@material-ui/core/";
+import { Button, ButtonGroup, Box, AppBar, Typography, Toolbar, MenuItem, CssBaseline } from "@material-ui/core/";
 
 const Menu = () => {
     return (
         <>
-         <CssBaseline/>
-        <AppBar position="relative">
-            <Toolbar>
-            <MenuItem>
-                <Typography variant="h4">Statystyki budowlane</Typography>
-            </MenuItem>
-            <ButtonGroup variant="outlined" aria-label="outlined button group">
+            <CssBaseline />
+            <AppBar position="relative">
+                <Toolbar>
+                    <MenuItem>
+                        <Link to="/" style={{ textDecoration: "none" }}  >
+                            <Typography color="secondary" variant="h4">Statystyki budowlane</Typography>
+                        </Link>
+                    </MenuItem>
+                    <ButtonGroup variant="primary" aria-label="outlined button group">
 
+                        <MenuItem>
+                            <Link to="/form" style={{ textDecoration: "none" }} >
 
-                <MenuItem>
-                    <Link style={{textDecoration: "none"}} to="/from" underline="none">
+                                <Button variant="contained">Fromularz</Button>
+                            </Link>
+                        </MenuItem>
 
-                        <Button variant="contained">Fromularz</Button>
-                    </Link>
-                </MenuItem>
+                        <MenuItem>
+                            <Link to="/stats" style={{ textDecoration: "none" }}  >
 
-                <MenuItem>
-                    <Link style={{textDecoration: "none"}} to="/stats" underline="none">
+                                <Button variant="contained">Statystyki</Button>
+                            </Link>
+                        </MenuItem>
 
-                        <Button variant="contained">Statystyki</Button>
-                    </Link>
-                </MenuItem>
-
-            </ButtonGroup>
-            </Toolbar>
-        </AppBar >
+                    </ButtonGroup>
+                </Toolbar>
+            </AppBar >
         </>
     );
 };

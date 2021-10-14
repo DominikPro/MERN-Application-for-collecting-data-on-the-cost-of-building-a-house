@@ -3,6 +3,7 @@ import CostForm from "./Components/CostForm/CostForm";
 import Menu from "./Components/Menu/Menu";
 import Stats from "./Components/StatisticForm/StatisticForm";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import HomePage from "./Page/HomePage"
 
 
 const App = () => {
@@ -11,7 +12,10 @@ const App = () => {
       <Router>
         <Menu />
         <Switch>
-          <Route exact path="/from">
+          <Route exact path="/">
+            <HomePage/>
+          </Route>
+          <Route path="/form">
             <CostForm />
           </Route>
 
