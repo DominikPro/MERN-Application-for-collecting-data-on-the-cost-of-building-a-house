@@ -1,4 +1,4 @@
-import { React, useState, createRef, useEffect } from "react";
+import { React, useState, createRef } from "react";
 import { useDispatch } from "react-redux";
 import { addCost, getCosts } from "../../redux/actions/costs";
 import { useSessionStorage } from "../../actions/useStorage";
@@ -11,11 +11,11 @@ import VoivodeshipInput from "../Shared/VoivodeshipInput";
 import YearInput from "../Shared/YearInput";
 import { stateOfConstructionOptions, workOrderLevel } from "./dataForm";
 //----------------------------------------------------------------------
-import { Container, Button, Box, Typography, Input } from '@material-ui/core/'
-
+import { Container, Button, Box, Typography, Input } from "@material-ui/core/";
 
 const CostForm = () => {
-  const [voted, setVoted, removeVoted] = useSessionStorage("voted", false)
+  const [voted, setVoted, removeVoted] = useSessionStorage("voted", false);
+
   const dispatch = useDispatch();
 
   const [sendedToDB, setSendedToDB] = useState(false);
@@ -33,20 +33,21 @@ const CostForm = () => {
     constructionCost: 0,
   });
 
-
-
   if (!voted) {
     return (
       <>
         <Container maxWidth="md">
-          <Box sx={{ m: 1 }} >
-            <Typography variant="h5">Rok rozpoczecia budowy {formData.year}</Typography>
+          <Box sx={{ m: 1 }}>
+            <Typography variant="h5">
+              Rok rozpoczecia budowy {formData.year}
+            </Typography>
             <YearInput setStateInParentComponent={setFormData} />
           </Box>
 
           <Box sx={{ m: 1 }}>
             <Typography variant="h5">
-              Województwo gdzie prowadzona jest inwestycja {formData.voivodeship}
+              Województwo gdzie prowadzona jest inwestycja{" "}
+              {formData.voivodeship}
             </Typography>
             <VoivodeshipInput setStateInParentComponent={setFormData} />
           </Box>
@@ -56,8 +57,6 @@ const CostForm = () => {
 
             {stateOfConstructionOptions.map((item) => {
               return (
-
-
                 <div key={item}>
                   <label
                     onClick={(e) => checkRadio(e, workStageInpiut, setFormData)}
@@ -73,7 +72,6 @@ const CostForm = () => {
                     ></input>
                   </label>
                 </div>
-
               );
             })}
           </Box>
@@ -81,11 +79,13 @@ const CostForm = () => {
             <Typography variant="h5">Poziom zlecanych prac</Typography>
             {workOrderLevel.map((item) => {
               return (
-                <div key={item} >
+                <div key={item}>
                   <label key={item} for="workLevel">
                     {item}
                     <input
-                      onClick={(e) => checkRadio(e, workLevelInput, setFormData)}
+                      onClick={(e) =>
+                        checkRadio(e, workLevelInput, setFormData)
+                      }
                       name={"workOrderLevel"}
                       type="radio"
                       value={item}
@@ -97,9 +97,11 @@ const CostForm = () => {
               );
             })}
           </Box>
-         
+
           <Box sx={{ m: 1 }}>
-            <Typography>Całkowita powierzchnia domu  - wraz z garażem i piwnicą</Typography>
+            <Typography>
+              Całkowita powierzchnia domu - wraz z garażem i piwnicą
+            </Typography>
             <Input
               onChange={(e) => upDateForm(e, houseAreaInput, setFormData)}
               // label="Powierzchnia domu"
@@ -110,20 +112,23 @@ const CostForm = () => {
               inputRef={houseAreaInput}
               varian="outlined"
             />
-            </Box>
-         
+          </Box>
 
           <Box sx={{ m: 1 }}>
             <Typography>Koszt budowy brutto</Typography>
-            <Input onChange={(e) => upDateForm(e, constructionCostInput, setFormData)}
+            <Input
+              onChange={(e) =>
+                upDateForm(e, constructionCostInput, setFormData)
+              }
               label="Koszt budowy domu brutto"
               type="number"
               step="1000"
               name={"constructionCost"}
               inputRef={constructionCostInput}
-              varian="outlined"/>
-            </Box>
-            {/* <input
+              varian="outlined"
+            />
+          </Box>
+          {/* <input
               placeholder="kwota brutto"
               onChange={(e) => upDateForm(e, constructionCostInput, setFormData)}
               type="number"
@@ -131,14 +136,15 @@ const CostForm = () => {
               name={"constructionCost"}
               ref={constructionCostInput}
             /> */}
-         
+
           <Box sx={{ m: 1 }}>
-            <Button variant="contained"
+            <Button
+              variant="contained"
               onClick={() => {
                 if (checkForm(formData)) {
                   dispatch(addCost(formData));
                   setSendedToDB(true);
-                  setVoted(true)
+                  setVoted(true);
                 }
                 console.log(formData);
               }}

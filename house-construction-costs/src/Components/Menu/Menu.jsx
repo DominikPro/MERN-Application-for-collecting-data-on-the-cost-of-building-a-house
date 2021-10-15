@@ -14,7 +14,7 @@ const Menu = () => {
                             <Typography color="secondary" variant="h4">Statystyki budowlane</Typography>
                         </Link>
                     </MenuItem>
-                    <ButtonGroup variant="primary" aria-label="outlined button group">
+                    <ButtonGroup  aria-label="outlined button group">
 
                         <MenuItem>
                             <Link to="/form" style={{ textDecoration: "none" }} >
