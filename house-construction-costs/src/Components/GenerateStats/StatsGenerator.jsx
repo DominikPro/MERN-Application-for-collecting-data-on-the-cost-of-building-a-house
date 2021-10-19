@@ -2,13 +2,10 @@ import React, { useState, useEffect } from "react";
 import findData from "../../actions/findData"
 import { voivodships } from "../CostForm/dataForm";
 import Button from '@mui/material/Button';
-import { Container, Typography, Box } from '@material-ui/core/'
-// import { useDispatch } from "react-redux";
-// import { useSelector } from "react-redux";
-// import {getCosts} from "../../redux/actions/costs"
+import { Container, Typography, Box, Paper, CardContent } from '@material-ui/core/'
+import SquareFootIcon from '@mui/icons-material/SquareFoot';
 
 const StatsGenerator = (props) => {
-    // const dispatch = useDispatch();
     const dataForStats = props.dataForStats;
     const dataSelectedByCustomer = props.dataSelectedByCustomer;
 
@@ -40,29 +37,55 @@ const StatsGenerator = (props) => {
     if (dataSelectedByCustomer.year != "" && dataSelectedByCustomer.voivodeship != "") {
         return (
             <>
-                <Box sx={{  m: 1 }}>
+                <Box sx={{ m: 1 }}>
                     <Typography variant="h5">{`Wybrano województwo ${dataSelectedByCustomer.voivodeship} statyski za rok ${dataSelectedByCustomer.year}`}</Typography>
                 </Box>
 
-                <Box sx={{  m: 1 }}>
-                <Button variant="contained"
-                    onClick={() => showStata()}
-                >
-                    Pokarz statystki
-                </Button>
+                <Box sx={{ m: 1 }}>
+                    <Button variant="contained"
+                        onClick={() => showStata()}
+                    >
+                        Pokarz statystki
+                    </Button>
                 </Box>
+                <CardContent sx={{ minWidth: 275 }}>
 
-                <Box sx={{ m: 2 }}>
-                    {showStat ? <Typography variant="h4">{`Średni koszt budowy 1m2 domu w ${dataSelectedByCustomer.year} roku wyniusł ${averageCost}zł średnia wielkość budowanego domu to ${averageSize} m2`}</Typography> : null}
-                </Box>
-                
-                <Box sx={{ p: 2 }}>
+                    {showStat ? <>
+                        <Box mt={2}>
+                            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                                {`Średni koszt budowy 1m2 domu w ${dataSelectedByCustomer.year} roku wyniusł:`}
+
+                            </Typography>
+                            <Typography variant="h5" component="div">
+                                {` ${averageCost}zł`}
+                            </Typography>
+                        </Box>
+                    </>
+                        : null}
+
+
+                    {showStat ? <>
+                        <Box mt={2}>
+                            <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                                {`Średnia wielkość budowanego domu to:`}
+                            </Typography>
+                            <Typography variant="h5" component="div">
+                                {`${averageSize} m2`}
+                            </Typography>
+                        </Box>
+                    </>
+                        : null}
+
+                </CardContent>
+
+
+                <Box mt={2}>
 
                     {noStat ? <Typography variant="h4">Brak danych</Typography> : null}
                 </Box>
             </>
         );
-    } else return (<Box sx={{  m: 1 }}><Typography variant="h5">Wybierz rok i województwo</Typography></Box>)
+    } else return (<Box sx={{ m: 1 }}><Typography variant="h5">Wybierz rok i województwo</Typography></Box>)
 
 };
 export default StatsGenerator;

@@ -1,16 +1,15 @@
 import React from "react";
 import CostForm from "./Components/CostForm/CostForm";
-import Menu from "./Components/Menu/Menu";
+import Navigation from "./Components/Navigation/Navigation"
 import Stats from "./Components/StatisticForm/StatisticForm";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HomePage from "./Page/HomePage"
-
 
 const App = () => {
   return (
     <div>
       <Router>
-        <Menu />
+        <Navigation />
         <Switch>
           <Route exact path="/">
             <HomePage/>

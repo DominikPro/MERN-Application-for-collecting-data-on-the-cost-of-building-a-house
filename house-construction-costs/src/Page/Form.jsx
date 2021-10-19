@@ -2,11 +2,10 @@ import React from 'react'
 import CostForm from "../Components/CostForm/CostForm"
 import { CssBaseline } from '@mui/material'
 
- const  Form =()=> {
+const Form = () => {
     return (
         <>
-        
-             <CostForm/>
+            <CostForm />
         </>
     )
 }

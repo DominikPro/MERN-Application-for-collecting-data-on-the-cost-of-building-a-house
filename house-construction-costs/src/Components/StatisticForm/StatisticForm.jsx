@@ -5,7 +5,7 @@ import VoivodeshipInput from "../Shared/VoivodeshipInput";
 import YearInput from "../Shared/YearInput";
 import { useDispatch, useSelector } from "react-redux";
 import { getCosts } from "../../redux/actions/costs";
-import { Container, Typography, Box } from "@material-ui/core/";
+import { Container, Typography, Box, Paper } from "@material-ui/core/";
 
 const StatisticForm = () => {
   const dispatch = useDispatch();
@@ -23,15 +23,22 @@ const StatisticForm = () => {
   return (
     <>
       <Container maxWidth="md">
-        <Typography variant="h5">{`Wybierz rok budowy: ${statForm.year}`}</Typography>
+        <Box mt={2}>
+          <Typography variant="h5">{`Wybierz rok budowy: ${statForm.year}`}</Typography>
+        </Box>
         <YearInput setStateInParentComponent={setStatForm} />
-        <Typography variant="h5">{`Wybierz wojewódtwo: ${statForm.voivodeship}`}</Typography>
+        <Box mt={2}>
+
+          <Typography variant="h5">{`Wybierz wojewódtwo: ${statForm.voivodeship}`}</Typography>
+        </Box>
         <VoivodeshipInput setStateInParentComponent={setStatForm} />
+
 
         <StatsGenerator
           dataForStats={dataForStats}
           dataSelectedByCustomer={statForm}
         ></StatsGenerator>
+
       </Container>
     </>
   );
