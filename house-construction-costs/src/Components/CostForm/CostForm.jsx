@@ -14,6 +14,7 @@ import { Container, Button, Box, Typography, Input } from "@material-ui/core/";
 const CostForm = () => {
   const [voted, setVoted, removeVoted] = useSessionStorage("voted", false);
 
+
   const dispatch = useDispatch();
 
   const [sendedToDB, setSendedToDB] = useState(false);

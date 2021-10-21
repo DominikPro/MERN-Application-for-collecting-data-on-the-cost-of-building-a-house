@@ -22,7 +22,12 @@ import {
 const useStyle = makeStyles((theme) => ({
     typography: {
         [theme.breakpoints.down("sm")]: {
-            fontSize: "1.4rem",
+            fontSize: "1.3rem",
+            "fontWeight": 500
+        },
+        [theme.breakpoints.down("xs")]: {
+            fontSize: "1.1rem",
+            "fontWeight": 500
         },
     },
 }));
@@ -41,17 +46,17 @@ const Navigation = () => {
     return (
         <>
             <CssBaseline />
-            <Grid container spacing={1}>
+            <Grid container >
                 <AppBar color="inherit" position="relative">
                     <Toolbar >
-                        <Grid xs={9} sm={10} lg={11}>
-                            <Box xs={{ mr: 1 }}>
+                        <Grid xs={8} sm={10} md={11}>
+                            <Box >
                                 <Link to="/" style={{ textDecoration: "none" }}  >
                                     <Typography className={classes.typography} variant="h4" component="div" sx={{ flexGrow: 1 }}>Statystyki budowlane</Typography>
                                 </Link>
                             </Box>
                         </Grid>
-                        <Grid xs={1} sm={2} lg={1}>
+                        <Grid xs={2} sm={1} md={1}>
 
                             <Button
                                 variant="contained"
